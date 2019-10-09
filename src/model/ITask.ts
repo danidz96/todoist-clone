@@ -4,4 +4,5 @@ export interface ITask {
 	projectId: string;
 	task: string;
 	userId: string;
+	id: string;
 }
