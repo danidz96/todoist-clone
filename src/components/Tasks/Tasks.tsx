@@ -1,10 +1,13 @@
 import React from 'react';
 import { ITask } from '../../model/ITask';
+import { Checkbox } from '../Checkbox/Checkbox';
+import { useTasks } from '../../hooks/useTasks';
 
 interface Props {}
 
 export const Tasks: React.FC<Props> = () => {
-	const tasks: ITask[] = [];
+	const { tasks } = useTasks('1');
+
 	let projectName: string = '';
 
 	return (
@@ -16,6 +19,7 @@ export const Tasks: React.FC<Props> = () => {
 			<ul className="tasks__list">
 				{tasks.map((task) => (
 					<li key={task.id}>
+						<Checkbox task={task} />
 						<span>{task.task}</span>
 					</li>
 				))}
