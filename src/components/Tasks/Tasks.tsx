@@ -1,7 +1,7 @@
 import React from 'react';
-import { ITask } from '../../model/ITask';
 import { Checkbox } from '../Checkbox/Checkbox';
 import { useTasks } from '../../hooks/useTasks';
+import './Tasks.scss';
 
 interface Props {}
 
