@@ -1,0 +1,9 @@
+.content {
+	display: grid;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	grid-template-columns: 1fr auto;
+	max-width: 922px;
+	margin: auto;
+}
