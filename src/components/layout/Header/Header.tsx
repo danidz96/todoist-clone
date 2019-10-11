@@ -1,5 +1,6 @@
 import React from 'react';
 import { MdSettings } from 'react-icons/md';
+import './Header.scss';
 
 interface Props {}
 
