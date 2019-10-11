@@ -77,6 +77,11 @@ header {
 					}
 
 					&.settings__darkmode {
+						svg {
+							width: 20px;
+							height: 20px;
+						}
+
 						button {
 							@include transparent-button();
 							color: white;
