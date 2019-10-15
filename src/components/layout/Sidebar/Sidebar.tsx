@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { FaChevronDown, FaInbox, FaRegCalendarAlt, FaRegCalendar } from 'react-icons/fa';
 import './Sidebar.scss';
 import { useSelectedProjectValue } from '../../../context';
+import { Projects } from '../../Projects/Projects';
 
 export const Sidebar: React.FC<{}> = () => {
-	//@ts-ignore
-	const { setSelectedProject } = useSelectedProjectValue;
+	// @ts-ignore
+	const { setSelectedProject } = useSelectedProjectValue();
 	const [ active, setActive ] = useState('inbox');
 	const [ showProjects, setShowProjects ] = useState(true);
 
@@ -37,8 +38,7 @@ export const Sidebar: React.FC<{}> = () => {
 				</span>
 				<h2>Projects</h2>
 			</div>
-			<ul className="sidebar__projects">Projects here!</ul>
-			Add project Component
+			<ul className="sidebar__projects">{showProjects && <Projects />}</ul>
 		</div>
 	);
 };
