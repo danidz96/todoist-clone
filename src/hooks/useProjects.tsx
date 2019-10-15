@@ -16,7 +16,7 @@ export const useProjects = () => {
 					const allProjects = snapshot.docs.map((project) => ({ docId: project.id, ...project.data() }));
 					console.log(allProjects);
 
-					if (JSON.stringify(allProjects) !== JSON.stringify(allProjects)) {
+					if (JSON.stringify(allProjects) !== JSON.stringify(projects)) {
 						setProjects(allProjects);
 					}
 				});
