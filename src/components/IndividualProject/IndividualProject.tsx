@@ -25,8 +25,8 @@ export const IndividualProject: React.FC<Props> = ({ project }) => {
 
 	return (
 		<React.Fragment>
-			<span className="sidebar__dot">·</span>
-			<span className="sidebar__project-name">{projects.name}</span>
+			<span className="sidebar__dot">•</span>
+			<span className="sidebar__project-name">{project.name}</span>
 			<span
 				className="sidebar__project-delete"
 				data-testid="delete-project"
