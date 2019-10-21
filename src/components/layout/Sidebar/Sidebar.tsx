@@ -3,6 +3,7 @@ import { FaChevronDown, FaInbox, FaRegCalendarAlt, FaRegCalendar } from 'react-i
 import './Sidebar.scss';
 import { useSelectedProjectValue } from '../../../context';
 import { Projects } from '../../Projects/Projects';
+import { AddProject } from '../../AddProject/AddProject';
 
 export const Sidebar: React.FC<{}> = () => {
 	// @ts-ignore
@@ -39,6 +40,7 @@ export const Sidebar: React.FC<{}> = () => {
 				<h2>Projects</h2>
 			</div>
 			<ul className="sidebar__projects">{showProjects && <Projects />}</ul>
+			{showProjects && <AddProject />}
 		</div>
 	);
 };

@@ -1,2 +1,40 @@
 @import '../../App.scss';
-@import '../layout//Sidebar/Sidebar.scss';
+@import '../layout/Sidebar/Sidebar.scss';
+
+.project-delete-modal {
+	position: relative;
+	display: flex;
+	align-items: flex-start;
+
+	&__inner {
+		@include box-overlay();
+		z-index: 99;
+		min-width: 200px;
+		padding: 10px;
+		top: 10px;
+		right: 0;
+		background-color: white;
+		display: flex;
+		flex-direction: column;
+
+		&__buttons {
+			align-items: space-between;
+		}
+
+		p {
+			margin-top: 5px;
+			margin-bottom: 5px;
+			line-height: normal;
+			font-weight: normal;
+			font-size: 15px;
+		}
+
+		button {
+			@include btn('50px');
+		}
+		span {
+			@include cancel();
+			font-weight: normal;
+		}
+	}
+}
