@@ -4,6 +4,7 @@ import { useTasks } from '../../hooks/useTasks';
 import { collatedTasks } from '../../constants';
 import { getTitle, getCollatedTitle, collatedTasksExist } from '../../helpers';
 import { useSelectedProjectValue, useProjectsValue } from '../../context/';
+import { AddTask } from '../AddTask/AddTask';
 
 import './Tasks.scss';
 
@@ -46,6 +47,7 @@ export const Tasks: React.FC<Props> = () => {
 					</li>
 				))}
 			</ul>
+			<AddTask />
 		</div>
 	);
 };

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { firebase } from '../../firebase';
-import { generatePushId } from '../../helpers/index';
 import { useProjectsValue } from '../../context';
 import uuid from 'uuid/v4';
 import './AddProject.scss';
