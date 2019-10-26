@@ -1,0 +1,107 @@
+@import '../../App.scss';
+
+.add-task {
+	&__overlay {
+		background: rgba(102, 102, 102, 0.5);
+		position: absolute;
+		margin: auto;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 2000;
+		-webkit-transition: opacity 0.2s ease-in;
+		transition: opacity 0.2s ease-in;
+		height: calc(100vh);
+
+		.add-task__main {
+			@include mq('900px') {
+				width: 90%;
+			}
+
+			overflow: visible;
+			margin-bottom: 20px;
+			margin-top: 55px;
+			border-radius: 5px;
+			background-color: white;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			padding: 20px 30px;
+			-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+
+			.header {
+				font-size: 13px;
+				margin-bottom: 20px;
+				float: left;
+			}
+		}
+
+		.add-task__cancel-x {
+			cursor: pointer;
+			color: gray;
+			float: right;
+			font-weight: bold;
+			font-size: 12px;
+			margin-top: 10px;
+		}
+	}
+
+	&__main {
+		position: relative;
+	}
+
+	&__project,
+	&__date {
+		cursor: pointer;
+		float: right;
+		color: gray;
+		margin: 20px 10px;
+	}
+
+	&__project {
+		margin-right: 0;
+	}
+
+	&__content {
+		width: 100%;
+		border: 1px solid #ddd;
+		background-color: white !important;
+		border-radius: 3px;
+		height: 35px;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	&__cancel,
+	&__submit {
+		@include no-select;
+	}
+
+	&__cancel {
+		@include cancel();
+	}
+
+	&__submit {
+		@include btn('90px');
+	}
+}
+
+.add-task__shallow {
+	@include no-select;
+	cursor: pointer;
+	margin: 20px 0;
+}
+
+.add-task__plus {
+	color: #dd4b39;
+	font-size: 18px;
+}
+
+.add-task__text {
+	display: inline-block;
+	color: #545454;
+	font-size: 14px;
+	margin-left: 15px;
+}
