@@ -9,7 +9,7 @@ interface Props {
 	showAddTaskMain?: boolean;
 	shouldShowMain?: boolean;
 	showQuickAddTask?: boolean;
-	setShowQuickAddTask?: boolean;
+	setShowQuickAddTask?: any;
 }
 
 export const AddTask: React.FC<Props> = ({
@@ -18,12 +18,12 @@ export const AddTask: React.FC<Props> = ({
 	showQuickAddTask,
 	setShowQuickAddTask
 }) => {
-	const [ task, setTask ] = useState('');
-	const [ taskDate, setTaskDate ] = useState('');
-	const [ project, setProject ] = useState('');
-	const [ showMain, setShowMain ] = useState(shouldShowMain);
-	const [ showProjectOverlay, setShowProjectOverlay ] = useState(false);
-	const [ showTaskDate, setShowTaskDate ] = useState(false);
+	const [ task, setTask ] = useState<string>('');
+	const [ taskDate, setTaskDate ] = useState<string>('');
+	const [ project, setProject ] = useState<string>('');
+	const [ showMain, setShowMain ] = useState<boolean>(shouldShowMain);
+	const [ showProjectOverlay, setShowProjectOverlay ] = useState<boolean>(false);
+	const [ showTaskDate, setShowTaskDate ] = useState<boolean>(false);
 	//@ts-ignore
 	const { selectedProject } = useSelectedProjectValue();
 
@@ -73,6 +73,53 @@ export const AddTask: React.FC<Props> = ({
 				>
 					<span className="add-task__plus">+</span>
 					<span className="add-task__text">Add Task</span>
+				</div>
+			)}
+
+			{(showMain || showQuickAddTask) && (
+				<div className="add-task__main" data-testid="add-task-main">
+					{showQuickAddTask && (
+						<React.Fragment>
+							<div data-testid="quick-add-task">
+								<h2 className="header">Quick Add Task</h2>
+								<span
+									className="add-task__cancel"
+									data-testid="add-task-quick-cancel"
+									onClick={() => {
+										setShowMain(false);
+										setShowProjectOverlay(false);
+										setShowQuickAddTask(false);
+									}}
+								>
+									X
+								</span>
+							</div>
+						</React.Fragment>
+					)}
+					<p>Project overlay here</p>
+					<p>TaskDate here</p>
+					<input
+						type="text"
+						className="add-task__content"
+						data-testid="add-task-content"
+						value={task}
+						onChange={(e) => setTask(e.target.value)}
+					/>
+					<button className="add-task__submit" data-testid="add-task" onClick={addTask} type="button">
+						Add Task
+					</button>
+					{!showQuickAddTask && (
+						<span
+							className="add-task__cancel"
+							data-testid="add-task-main-cancel"
+							onClick={() => {
+								setShowMain(false);
+								setShowProjectOverlay(false);
+							}}
+						>
+							Cancel
+						</span>
+					)}
 				</div>
 			)}
 		</div>
