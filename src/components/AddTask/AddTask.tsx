@@ -4,6 +4,7 @@ import moment from 'moment';
 import { firebase } from '../../firebase';
 import { useSelectedProjectValue } from '../../context';
 import '../AddTask/AddTask.scss';
+import { ProjectOverlay } from '../ProjectOverlay/ProjectOverlay';
 
 interface Props {
 	showAddTaskMain?: boolean;
@@ -96,7 +97,13 @@ export const AddTask: React.FC<Props> = ({
 							</div>
 						</React.Fragment>
 					)}
-					<p>Project overlay here</p>
+					{
+						<ProjectOverlay
+							setProject={setProject}
+							showProjectOverlay={showProjectOverlay}
+							setShowProjectOverlay={setShowProjectOverlay}
+						/>
+					}
 					<p>TaskDate here</p>
 					<input
 						type="text"
