@@ -31,6 +31,10 @@ export const IndividualProject: React.FC<Props> = ({ project }) => {
 				className="sidebar__project-delete"
 				data-testid="delete-project"
 				onClick={() => setShowConfirm(!showConfirm)}
+				onKeyDown={() => setShowConfirm(!showConfirm)}
+				tabIndex={0}
+				role="button"
+				aria-label="Confirm deletion of project"
 			>
 				<FaTrashAlt />
 				{showConfirm && (
@@ -41,7 +45,15 @@ export const IndividualProject: React.FC<Props> = ({ project }) => {
 								<button type="button" onClick={() => deleteProject(project.docId)}>
 									Delete
 								</button>
-								<span onClick={() => setShowConfirm(!showConfirm)}>Cancel</span>
+								<span
+									onClick={() => setShowConfirm(!showConfirm)}
+									onKeyDown={() => setShowConfirm(!showConfirm)}
+									tabIndex={0}
+									role="button"
+									aria-label="Cancel adding project, do not delete"
+								>
+									Cancel
+								</span>
 							</div>
 						</div>
 					</div>

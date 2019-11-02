@@ -92,6 +92,14 @@ export const AddTask: React.FC<Props> = ({
 										setShowProjectOverlay(false);
 										setShowQuickAddTask(false);
 									}}
+									onKeyDown={() => {
+										setShowMain(false);
+										setShowProjectOverlay(false);
+										setShowQuickAddTask(false);
+									}}
+									tabIndex={0}
+									role="button"
+									aria-label="Cancel adding task"
 								>
 									X
 								</span>
@@ -109,6 +117,7 @@ export const AddTask: React.FC<Props> = ({
 					<input
 						type="text"
 						className="add-task__content"
+						aria-label="Enter your task"
 						data-testid="add-task-content"
 						value={task}
 						onChange={(e) => setTask(e.target.value)}
@@ -131,6 +140,13 @@ export const AddTask: React.FC<Props> = ({
 								setShowMain(false);
 								setShowProjectOverlay(false);
 							}}
+							onKeyDown={() => {
+								setShowMain(false);
+								setShowProjectOverlay(false);
+							}}
+							aria-label="Cancel adding a task"
+							tabIndex={0}
+							role="button"
 						>
 							Cancel
 						</span>
@@ -141,6 +157,9 @@ export const AddTask: React.FC<Props> = ({
 						onClick={() => {
 							setShowProjectOverlay(!showProjectOverlay);
 						}}
+						onKeyDown={() => setShowProjectOverlay(!showProjectOverlay)}
+						tabIndex={0}
+						role="button"
 					>
 						<FaRegListAlt />
 					</span>
@@ -148,6 +167,9 @@ export const AddTask: React.FC<Props> = ({
 						className="add-task__date"
 						data-testid="show-task-date-overlay"
 						onClick={() => setShowTaskDate(!showTaskDate)}
+						onKeyDown={() => setShowTaskDate(!showTaskDate)}
+						tabIndex={0}
+						role="button"
 					>
 						<FaRegCalendarAlt />
 					</span>

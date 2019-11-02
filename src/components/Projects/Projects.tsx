@@ -12,7 +12,6 @@ export const Projects: React.FC<Props> = ({ activeValue = null }) => {
 	const { setSelectedProject } = useSelectedProjectValue();
 	// @ts-ignore
 	const { projects } = useProjectsValue();
-	console.log(projects);
 
 	return (
 		projects &&

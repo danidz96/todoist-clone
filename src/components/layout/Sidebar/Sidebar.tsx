@@ -17,7 +17,14 @@ export const Sidebar: React.FC<{}> = () => {
 				<li
 					data-testid="inbox"
 					className={active === 'inbox' ? 'active' : undefined}
+					aria-label="Show inbox tasks"
+					tabIndex={0}
+					role="button"
 					onClick={() => {
+						setActive('inbox');
+						setSelectedProject('INBOX');
+					}}
+					onKeyDown={() => {
 						setActive('inbox');
 						setSelectedProject('INBOX');
 					}}
@@ -30,7 +37,14 @@ export const Sidebar: React.FC<{}> = () => {
 				<li
 					data-testid="today"
 					className={active === 'today' ? 'active' : undefined}
+					aria-label="Show today's tasks"
+					tabIndex={0}
+					role="button"
 					onClick={() => {
+						setActive('today');
+						setSelectedProject('TODAY');
+					}}
+					onKeyDown={() => {
 						setActive('today');
 						setSelectedProject('TODAY');
 					}}
@@ -43,7 +57,14 @@ export const Sidebar: React.FC<{}> = () => {
 				<li
 					data-testid="next_7"
 					className={active === 'next_7' ? 'active' : undefined}
+					aria-label="Show tasks for the next 7 days"
+					tabIndex={0}
+					role="button"
 					onClick={() => {
+						setActive('next_7');
+						setSelectedProject('NEXT_7');
+					}}
+					onKeyDown={() => {
 						setActive('next_7');
 						setSelectedProject('NEXT_7');
 					}}
@@ -54,7 +75,14 @@ export const Sidebar: React.FC<{}> = () => {
 					<span>Next 7 days</span>
 				</li>
 			</ul>
-			<div className="sidebar__middle" onClick={() => setShowProjects(!showProjects)}>
+			<div
+				className="sidebar__middle"
+				aria-label="Show/hide projects"
+				onClick={() => setShowProjects(!showProjects)}
+				onKeyDown={() => setShowProjects(!showProjects)}
+				role="button"
+				tabIndex={0}
+			>
 				<span>
 					<FaChevronDown className={!showProjects ? 'hidden-projects' : undefined} />
 				</span>

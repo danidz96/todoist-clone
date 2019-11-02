@@ -22,7 +22,13 @@ export const Header: React.FC<Props> = ({ darkMode, setDarkMode }) => {
 						<li
 							data-testid="quick-add-task-action"
 							className="settings__add"
+							aria-label="Quick add task"
+							role="button"
 							onClick={() => {
+								setShowQuickAddTask(true);
+								setShouldShowMain(true);
+							}}
+							onKeyDown={() => {
 								setShowQuickAddTask(true);
 								setShouldShowMain(true);
 							}}
@@ -32,7 +38,10 @@ export const Header: React.FC<Props> = ({ darkMode, setDarkMode }) => {
 						<li
 							data-testid="dark-mode-action"
 							className="settings__darkmode"
+							aria-label="Darkmode on/off"
+							role="button"
 							onClick={() => setDarkMode(!darkMode)}
+							onKeyDown={() => setDarkMode(!darkMode)}
 						>
 							<MdSettings />
 						</li>
