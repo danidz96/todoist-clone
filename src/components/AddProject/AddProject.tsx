@@ -12,7 +12,7 @@ export const AddProject: React.FC<Props> = ({ shouldShow = false }) => {
 	const [ show, setShow ] = useState(shouldShow);
 	const [ projectName, setProjectName ] = useState('');
 	//@ts-ignore
-	const { setProjects } = useProjectsValue();
+	const { projects, setProjects } = useProjectsValue();
 
 	const projectId = uuid();
 	const addProject = () =>
@@ -22,7 +22,7 @@ export const AddProject: React.FC<Props> = ({ shouldShow = false }) => {
 			.collection('projects')
 			.add({ projectId, name: projectName, userId: 'PIlfw5ql9ExmqixfenaK' })
 			.then(() => {
-				setProjects([]);
+				setProjects([ ...projects ]);
 				setProjectName('');
 				setShow(false);
 			});

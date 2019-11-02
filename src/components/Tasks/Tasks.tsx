@@ -19,14 +19,12 @@ export const Tasks: React.FC<Props> = () => {
 
 	let projectName: string = '';
 
-	if (projects && selectedProject && !collatedTasksExist(selectedProject)) {
+	if (projects.length > 0 && selectedProject && !collatedTasksExist(selectedProject)) {
 		projectName = getTitle(projects, selectedProject).name;
-		console.log('projectName 1', projectName);
 	}
 
 	if (collatedTasksExist(selectedProject) && selectedProject) {
 		projectName = getCollatedTitle(collatedTasks, selectedProject).name;
-		console.log('projectName 2', projectName);
 	}
 
 	useEffect(() => {
