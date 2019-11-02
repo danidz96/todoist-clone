@@ -1,0 +1,32 @@
+@import '../../App.scss';
+
+.task-date {
+	@include box-overlay();
+	background-color: #fff;
+	width: 200px;
+	right: 0;
+
+	&__list li {
+		@include task-item();
+		padding: 0;
+
+		div:nth-child(1) {
+			padding: 10px;
+			width: 100%;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			align-items: center;
+
+			span:first-of-type {
+				margin-right: 10px;
+
+				svg {
+					fill: grey;
+				}
+			}
+		}
+	}
+}
