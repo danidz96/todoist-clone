@@ -1,6 +1,7 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
 import { MdSettings } from 'react-icons/md';
 import './Header.scss';
+import { AddTask } from '../../AddTask/AddTask';
 
 interface Props {
 	darkMode: Boolean;
@@ -18,7 +19,14 @@ export const Header: React.FC<Props> = ({ darkMode, setDarkMode }) => {
 				</div>
 				<div className="settings">
 					<ul>
-						<li data-testid="quick-add-task-action" className="settings__add">
+						<li
+							data-testid="quick-add-task-action"
+							className="settings__add"
+							onClick={() => {
+								setShowQuickAddTask(true);
+								setShouldShowMain(true);
+							}}
+						>
 							+
 						</li>
 						<li
@@ -31,6 +39,12 @@ export const Header: React.FC<Props> = ({ darkMode, setDarkMode }) => {
 					</ul>
 				</div>
 			</nav>
+			<AddTask
+				showAddTaskMain={false}
+				shouldShowMain={shouldShowMain}
+				showQuickAddTask={showQuickAddTask}
+				setShowQuickAddTask={setShowQuickAddTask}
+			/>
 		</header>
 	);
 };

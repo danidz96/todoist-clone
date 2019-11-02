@@ -82,7 +82,7 @@ export const AddTask: React.FC<Props> = ({
 				<div className="add-task__main" data-testid="add-task-main">
 					{showQuickAddTask && (
 						<React.Fragment>
-							<div data-testid="quick-add-task">
+							<div data-testid="quick-add-task" className="add-task__quick">
 								<h2 className="header">Quick Add Task</h2>
 								<span
 									className="add-task__cancel"
@@ -113,7 +113,14 @@ export const AddTask: React.FC<Props> = ({
 						value={task}
 						onChange={(e) => setTask(e.target.value)}
 					/>
-					<button className="add-task__submit" data-testid="add-task" onClick={addTask} type="button">
+					<button
+						className="add-task__submit"
+						data-testid="add-task"
+						onClick={() => {
+							showQuickAddTask ? addTask() && setShowQuickAddTask(false) : addTask();
+						}}
+						type="button"
+					>
 						Add Task
 					</button>
 					{!showQuickAddTask && (
